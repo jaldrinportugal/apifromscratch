@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BooksController;
+use App\Http\Controllers\RecordsController;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,10 +25,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::middleware('auth:sanctum')->group(function (){
-        Route::get('/users',[UserController::class,'users']);
-        Route::get('/users/{id}',[UserController::class,'user']);
-        Route::delete('/users/{id}',[UserController::class,'delete']);
+        // Route::get('/users',[UserController::class,'users']);
+        // Route::get('/users/{id}',[UserController::class,'user']);
+        // Route::delete('/users/{id}',[UserController::class,'delete']);
         Route::get('/books',[BooksController::class,'books']);
+        
+        Route::get('/records',[RecordsController::class,'records']);
+
         Route::get('/books/{id}',[BooksController::class,'book']);
         Route::post('/store',[BooksController::class,'post']);
         Route::put('/update',[BooksController::class,'update']);
